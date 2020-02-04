@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         });
         ad.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
+            @SuppressWarnings("deprecation")
             public void onClick(DialogInterface dialog, int which) {
                 if (!elecciones.isEmpty()) {
                     for (String eleccion : elecciones) {
@@ -126,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
                             "Ninguna opción elegida",
                             Toast.LENGTH_SHORT).show();
                 }
+                removeDialog(DIALOG_CHECK);
+                elecciones.clear();
             }
         });
         return ad;
